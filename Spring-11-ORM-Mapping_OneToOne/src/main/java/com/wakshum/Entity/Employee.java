@@ -25,7 +25,7 @@ public class Employee extends BaseEntity{
 
 
     //@OneToOne(cascade = CascadeType.PERSIST,CascadeType.REMOVE)
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne(cascade = CascadeType.ALL)    //persist data between employee and department
     @JoinColumn(name = "department_id")
     private Department department;
 
