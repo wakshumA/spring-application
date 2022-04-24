@@ -1,4 +1,4 @@
-package com.wakshum.entity;
+package com.wakshum.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +8,9 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
-@NoArgsConstructor
 @Table(name = "merchants")
 @Data
+@NoArgsConstructor
 public class Merchant {
 
     @Id
@@ -20,11 +20,18 @@ public class Merchant {
     private String name;
     private String code;
     private BigDecimal transactionFee;
-    private BigDecimal commissionFee;
+    private BigDecimal commissionRate;
     private Integer payoutDelayCount;
 
-    @OneToMany(mappedBy = "merchant")
+    @OneToMany(mappedBy = "merchant")  //in onetomany relationship,ownership belongs to Many side
     private List<Payment> paymentList;
 
 
+    public Merchant(String name, String code, BigDecimal transactionFee, BigDecimal commissionRate, Integer payoutDelayCount) {
+        this.name = name;
+        this.code = code;
+        this.transactionFee = transactionFee;
+        this.commissionRate = commissionRate;
+        this.payoutDelayCount = payoutDelayCount;
+    }
 }

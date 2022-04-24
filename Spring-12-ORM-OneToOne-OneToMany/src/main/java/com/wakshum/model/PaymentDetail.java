@@ -1,4 +1,4 @@
-package com.wakshum.entity;
+package com.wakshum.model;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -8,9 +8,9 @@ import java.math.BigDecimal;
 import java.time.LocalDate;
 
 @Entity
-@NoArgsConstructor
 @Table(name = "paymentDetails")
 @Data
+@NoArgsConstructor
 public class PaymentDetail {
 
     @Id
@@ -23,10 +23,10 @@ public class PaymentDetail {
     @Column(columnDefinition = "DATE")
     private LocalDate payoutDate;
 
-    @OneToOne(mappedBy = "paymentDetail",cascade=CascadeType.ALL)
+
+    @OneToOne(mappedBy = "paymentDetail", cascade = CascadeType.ALL)
     @JoinColumn(name = "payment_id")
     private Payment payment;
-
 
     public PaymentDetail(BigDecimal merchantPayoutAmount, BigDecimal commissionAmount, LocalDate payoutDate) {
         this.merchantPayoutAmount = merchantPayoutAmount;

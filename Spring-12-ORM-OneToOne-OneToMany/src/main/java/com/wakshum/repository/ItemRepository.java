@@ -1,2 +1,7 @@
-package com.wakshum.repository;public class ItemRepository {
+package com.wakshum.repository;
+
+import com.wakshum.model.Item;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface ItemRepository extends JpaRepository<Item,Long> {
 }

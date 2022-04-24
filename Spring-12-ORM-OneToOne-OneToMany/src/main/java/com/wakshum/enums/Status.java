@@ -1,8 +1,6 @@
 package com.wakshum.enums;
 
-import java.math.BigDecimal;
-
-public enum PaymentStatus {
+public enum Status {
 
     SUCCESS,FAILURE;
 
